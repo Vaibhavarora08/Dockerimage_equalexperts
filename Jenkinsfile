@@ -1,11 +1,7 @@
 pipeline {
   agent {label 'master'} 
     stages{
-      stage('Clone repository') {
-        steps{
-           checkout scm
-        }   
-      }
+     
        stage('Build') {
           steps {
                 sh 'mvn -B -DskipTests clean package'
@@ -16,6 +12,12 @@ pipeline {
               sh 'mvn test'
         }
       }
+       stage ('copy imge'){
+       steps  {
+              sh 'mkdir /mnt/artefact'
+              sh ' cp  /var/lib/jenkins/workspace/equal/target/*.jar  /mnt/artefact/'
+       }
+      }
+    }
       
     }
-}    
