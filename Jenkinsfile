@@ -26,4 +26,4 @@ pipeline {
         stage('copy image'){
         cp *.jar /mnt/artefact
         }
-        
+}
