@@ -1,6 +1,6 @@
 pipeline {
     
-    
+    stages{
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -27,3 +27,5 @@ pipeline {
         cp *.jar /mnt/artefact
         }
 }
+}
+        
