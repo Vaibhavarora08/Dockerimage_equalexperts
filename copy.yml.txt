@@ -1,0 +1,8 @@
+- hosts: public
+  tasks:
+    - name: Transfer file from ServerA to ServerB
+      synchronize:
+        src: /mnt/artefact/*.jar
+        dest: /mnt/artefact/
+        mode: pull
+      delegate_to: private
