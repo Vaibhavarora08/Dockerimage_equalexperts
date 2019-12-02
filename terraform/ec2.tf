@@ -9,7 +9,7 @@ resource "aws_instance" "equalexperts_public" {
   ami = "${var.amis}"
   key_name = "${var.key_name}"
   associate_public_ip_address = true
-  user_data_base64 = "${base64encode(local.instance-userdata)}"
+  user_data_base64 = "${base64encode(data.template_file.jenkin.tpl)}"
 
   tags {
     Name = "${var.equalexperts_public_name}"
